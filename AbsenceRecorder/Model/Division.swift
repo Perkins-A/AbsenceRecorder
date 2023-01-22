@@ -37,7 +37,7 @@ class Division {
         for student in students {
             divisionDisplay += """
 \(student.forename) \(student.surname)
-
+ 
 """
         }
         
