@@ -9,16 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     
-    private var divisions = Division.examples
+    var divisions: [Division]
+    @State private var currentDate: Date = Date()
     
     var body: some View {
-        Text("\(divisions[1].displayDivision())")
-            .padding()
+        NavigationView {
+            List(divisions, id: \.self.code) { division in
+                DivisionItem(division: division)
+            }
+            .navigationTitle(currentDate.getShortDate())
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { currentDate = currentDate.previousDay()}) {
+                        Image(systemName: "chevron.backward")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { currentDate = currentDate.nextDay()}) {
+                        Image(systemName: "chevron.forward")
+                    }
+                }
+            }
+        }
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(divisions: Division.examples)
     }
 }
