@@ -21,6 +21,6 @@ struct DivisionItem: View {
 
 struct DivisionItem_Previews: PreviewProvider {
     static var previews: some View {
-        DivisionItem(division: Division.examples)
+        DivisionItem(division: Division(code: "vBY-1"))
     }
 }
