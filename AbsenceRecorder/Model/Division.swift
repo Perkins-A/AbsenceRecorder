@@ -20,7 +20,7 @@ class Division {
         let division = Division(code: code)
         
         for i in 1...size {
-            division.students.append(Student(forename: "Jeffery\(i)", surname: "Jenkins\(i)", date: "4th of May, 2005"))
+            division.students.append(Student(forename: "Jeffery\(i)", surname: "Jenkins\(i)", birthday: Date()))
         }
         
         return division
