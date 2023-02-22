@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Division {
+class Division: Codable {
     let code: String
     var students: [Student] = []
     var absences: [Absence] = []
@@ -23,7 +23,6 @@ class Division {
         }
     
     }
-    
     
     func createAbsenceOrGetExistingIfAvailable(for date: Date) -> Absence {
         if let existingAbsence = getAbsence(for: date) {
